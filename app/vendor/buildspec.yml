@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update && apt-get install -y zip
+      - curl -sS https://getcomposer.org/installer | php
+      - php composer.phar install --no-dev --optimize-autoloader
+  build:
+    commands:
+      - zip -r deployment.zip app/* vendor/*
+artifacts:
+  files:
+    - deployment.zip
+

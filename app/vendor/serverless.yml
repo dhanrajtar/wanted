@@ -1,0 +1,13 @@
+service: my-service
+provider:
+  name: aws
+  runtime: provided
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+functions:
+  my-function:
+    handler: index.php
+    package:
+      artifact: deployment.zip
+
